@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cinejava;
+package CineJava;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -26,14 +27,25 @@ public class bdconnection {
 
     private bdconnection() {
         try {
-          //  class.forName(driver);
+            //  class.forName(driver);
             //.newInstance();
-             conn= (Connection) DriverManager.getConnection(url, url, password);
-             
-            
-             
-        } catch(){
+            conn = (Connection) DriverManager.getConnection(url, url, password);
 
+            if (!conn.isClosed()) {
+                System.out.println("Database connection working using TCP/IP ");
+            }
+
+        } catch (Exception e) {
+            System.err.println("Exception " + e.getMessage());
+
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+
+            }
         }
     }
 
