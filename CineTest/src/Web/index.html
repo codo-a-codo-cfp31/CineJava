@@ -16,65 +16,28 @@
 	</Style>
 	
 	<body>
-		<div class="container">
-  <h2>Basic Table</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
 	
-		<div class="container">
-     	<h2>Basic List Group</h2>
-		<ul class="list-group">
-			<li class="list-group-item">First item</li>
-			<li class="list-group-item">Second item</li>
-			<li class="list-group-item">Third item</li>
-		</ul>
-		</div>
-
-		<section id="Botones">
+	<button onclick="Print()"> Click me!</button>
+	
+		<section id="opciones">
 		<h2><ul>
 			<li><a href="Complejos.html">Complejos</a></li> 
 			<li><a href="Peliculas.html">Peliculas</li>
 			<li><a href="Horarios.html">Horarios</li>
 			<li><a href="Promociones.html">Promociones</li>
 			<li><a href="Precios.html">Precios</li>
+			<li><a href="SignUp.html">SignUp</li>
 		</ul></h2>
 		</section>
 
-		<button onclick="myFunction()"> Click me!</button>
+		
  
 	</body>
 	
 	<script>
-		function myFunction(){
-			document.getElementById("Botones").innerHTML = "BLA BLA BLA";
-		}
-	</script>
+		function Print(){
+			jHelper.PrintFromJS('bla bla bla');
+			}
+	</script>		
 
 </Html>

@@ -7,14 +7,23 @@ package cinetest;
 
 import java.net.URL;
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker.State;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import netscape.javascript.JSObject;
+import org.w3c.dom.*;
+import org.w3c.dom.html.*;
+
+
 
 /**
  *
@@ -35,11 +44,12 @@ public class CineTest extends Application {
         myWebEngine.getLoadWorker().stateProperty().addListener(
                 (ObservableValue<? extends State> ov, State oldState,
                 State newState) ->{
-                    if(newState == State.SUCCEEDED)
-                    System.out.println("test");
-                }
+                    if(newState == State.SUCCEEDED){
+                    JSObject win = (JSObject)myWebEngine.executeScript("window");
+                    win.setMember("jHelper", new JavaHelper());
+                    }
+                }    
         );
-        
         
         myWebEngine.load(url.toString());       
         
@@ -59,7 +69,7 @@ public class CineTest extends Application {
     /**
      * @param args the command line arguments
      */
-    Button myButton;
+    
     public static void main(String[] args) {
         launch(args);        
     }
