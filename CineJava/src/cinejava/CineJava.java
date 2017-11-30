@@ -5,6 +5,9 @@
  */
 package cinejava;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author alumno
@@ -14,7 +17,7 @@ public class CineJava {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // TODO code application logic here
 
         MasterController mastercontroller = new MasterController();
@@ -38,6 +41,11 @@ public class CineJava {
 
         mastercontroller.pop();
         System.out.println(mastercontroller.stack);
+        
+        ArrayList arguments = new ArrayList();
+    
+        
+        bdconnection.GetSingleton().ExecuteQuery("SELECT * FROM user",arguments);
 
     }
 
