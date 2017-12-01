@@ -5,6 +5,8 @@
  */
 package cinejava;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -41,11 +43,22 @@ public class CineJava {
 
         mastercontroller.pop();
         System.out.println(mastercontroller.stack);
+
+        User user = new User();
         
-        ArrayList arguments = new ArrayList();
-    
-        
-        bdconnection.GetSingleton().ExecuteQuery("SELECT * FROM user",arguments);
+        ResultSet rs = (bdconnection.GetSingleton().SelectObjects(user));
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+        while (rs.next()) {
+            for (int i = 1; i <= columnsNumber; i++) {
+                if (i > 1) {
+                    System.out.print(",  ");
+                }
+                String columnValue = rs.getString(i);
+                System.out.print(columnValue + " " + rsmd.getColumnName(i));
+            }
+            System.out.println("");
+        }
 
     }
 
