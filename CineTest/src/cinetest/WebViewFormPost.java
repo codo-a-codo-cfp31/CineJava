@@ -59,7 +59,7 @@ public class WebViewFormPost extends Application {
                                 }
                             }
 
-                            if (username != null && password != null) {
+                            if (username != null && password != null ) {
                                 loginAttempted.set(true);
                                 username.setValue(fxUsername.getText());
                                 password.setValue(fxPassword.getText());
@@ -76,20 +76,20 @@ public class WebViewFormPost extends Application {
                 System.out.println("Load Exception: " + exception);
             }
         });
-
+      
         GridPane inputGrid = new GridPane();
         inputGrid.setHgap(10);
         inputGrid.setVgap(10);
         inputGrid.addRow(0, new Label("Username: "), fxUsername);
         inputGrid.addRow(0, new Label("Password: "), fxPassword);
-
+        
         Button fxLoginButton = new Button("Login to Oracle Forums");
         fxLoginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 if (notEmpty(fxPassword.getText()) && notEmpty(fxPassword.getText())) {
                     loginAttempted.set(false);
-                    engine.load("https://forums.oracle.com/community/developer/english/java/javafx/login.jspa");
+                    engine.load("http://www.google.com"); // Esto tiene que cargar la pagina a la que accede el usuario luego de logearse
                 }
             }
         });
