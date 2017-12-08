@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cinejava;
+package cinejavaapp.dao;
 
 import java.util.*;
-import javafx.util.*;
 
 /**
  *
@@ -19,10 +18,10 @@ public class DBManagedObject {
     public List<String> listAll;
     public String nameTable;
 
-    public DBManagedObject() {
+    public DBManagedObject(){
         listValues = new ArrayList<>();
     }
-
+    
     public String getTableName() {
         return nameTable;
     }
@@ -31,12 +30,18 @@ public class DBManagedObject {
         return listColumns;
     }
 
-    public List<Pair<String, String>> getValues() {
+    public List<Pair<String,String>> getValues() {
         return listValues;
     }
 
     public List<String> getAll() {
         return listAll;
     }
+
+
+
+
+
+
 
 }
