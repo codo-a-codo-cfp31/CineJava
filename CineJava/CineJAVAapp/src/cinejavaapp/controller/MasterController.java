@@ -6,6 +6,7 @@
 package cinejavaapp.controller;
 
 import java.util.Stack;
+import javafx.stage.Stage;
 
 /**
  *
@@ -14,12 +15,21 @@ import java.util.Stack;
 public class MasterController {
 
     protected Stack<controller> stack;
-
-    MasterController() {
+    
+    private static MasterController instance = null;
+    
+     public MasterController(Stage primaryStage) {
         stack = new Stack<>();
-        controller controller = new controller();
+        controller controller = new controller(primaryStage);
         stack.add(controller);
     }
+     
+     public static MasterController getInstance() {
+         if (instance == null) {
+             instance = new MasterController(null);
+         }
+         return instance;
+     }
 
     public void push(controller controller) {
         stack.peek().hide();

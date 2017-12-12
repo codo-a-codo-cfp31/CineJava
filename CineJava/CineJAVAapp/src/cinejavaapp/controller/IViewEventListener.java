@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cinejavaapp.view;
+package cinetest;
 
-import java.net.URL;
+import javafx.event.Event;
 
 /**
  *
  * @author alumno
  */
-public class vista extends MainView {
-    
-    public vista(URL url){
-        super(url);
-    }
+public interface IViewEventListener {
+    public void listen(Event event);
 }

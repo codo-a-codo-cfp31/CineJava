@@ -5,18 +5,42 @@
  */
 package cinejavaapp.controller;
 import cinejavaapp.view.*;
+import cinetest.IViewEventListener;
+import javafx.event.Event;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author alumno
  */
-public class controller implements IController {
+public class controller implements IController, IViewEventListener {
 
     private vista vista;
 
-    controller() {
-        vista = new vista();
+    controller(Stage primaryStage) {
+        vista = new vista(this.getClass().getResource("/Web/LogIn.html"));
+        
+        vista.AddToList((IViewEventListener) this);
+        Pane root = new Pane();
+        root.getChildren().add(0, vista.getMyBrowser());
+        
+        primaryStage.setTitle("Cine Java");
+        
+        Scene scene = new Scene(root,640, 480);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+       
     }
+    
+    
+    @Override
+    public void listen(Event event) {
+        //Event ae = (Event)event.getTarget();
+        String email = vista.GetElementByID("user_name");
+    }
+    
 
     @Override
     public void show() {
