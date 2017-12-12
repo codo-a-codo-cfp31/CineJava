@@ -5,21 +5,10 @@
  */
 package cinetest;
 
-import java.net.URL;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Worker.State;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import netscape.javascript.JSObject;
-import org.w3c.dom.*;
-import org.w3c.dom.html.*;
 
 
 
@@ -31,11 +20,10 @@ public class CineTest extends Application {
     
          @Override
         public void start(Stage primaryStage) {
-        Controller myController = new Controller(primaryStage);
-        
+        Controller myController = new Controller(primaryStage); 
     }
         
-        final BooleanProperty loginAttempted = new SimpleBooleanProperty(false);
+        //final BooleanProperty loginAttempted = new SimpleBooleanProperty(false);
             
         
         /*
@@ -80,26 +68,15 @@ public class CineTest extends Application {
         
         
         */       
-        
-        //BOTON TEST
-        //myButton = new Button("Alert Box");
-        //myButton.setOnAction(e-> AlertBox.display("Title", "Ventana Test"));
-        
-        
-    
 
-    
-    
     /**
      * @param args the command line arguments
      */
     public void NodeTest(){
     
     }
-    
-    
+
     public static void main(String[] args) {
         launch(args);        
     }
-    
 }

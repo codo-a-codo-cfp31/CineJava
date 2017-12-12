@@ -43,13 +43,15 @@ public class MainView {
                 (ObservableValue<? extends Worker.State> ov, Worker.State oldState,
                         Worker.State newState) -> {
                     if (newState == Worker.State.SUCCEEDED) {
+                        System.out.println("page loaded");
                         JSObject win = (JSObject) myWebEngine.executeScript("window");
-                        win.setMember("jHelper", new JavaHelper());
+                        win.setMember("jHelper", new JavaHelper(myWebEngine));
+                        System.out.println(myWebEngine.getDocument().getElementById("user_name").getNodeValue());
                     }
                 }
         );
 
-        myWebEngine.documentProperty().addListener(
+      /*  myWebEngine.documentProperty().addListener(
                 (ObservableValue<? extends Document> ov, Document oldDoc, Document doc) -> {
                     if (doc != null) {
                         if (doc.getElementsByTagName("form").getLength() > 0) {
@@ -57,19 +59,20 @@ public class MainView {
                             System.out.println(form.getAttribute("action"));
                             if ("/Web/SignUp_Submit".equals(form.getAttribute("action"))) {
                                    System.out.println("ATRODE!");
-                                   Event evento = new Event("submi", null, EventType.ROOT);
-                                   for (Iterator<IViewEventListener> iterator = list_listeners.iterator(); iterator.hasNext();) {
-                                    IViewEventListener next = iterator.next();
-                                    next.listen(evento);
-                                    
+                                   Event evento = new Event("Submit", null, EventType.ROOT);
+                                   for(Iterator<IViewEventListener> iterator = list_listeners.iterator(); iterator.hasNext();) {
+                                        IViewEventListener next = iterator.next();
+                                        next.listen(evento);
                                 }
                             }
                         }
                     }
                 }
         );
+        */
+        
     }
-
+    
     public MainView() {
         this(null);
     }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>CineJava Log In</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap.min.js"></script>
+                
+                <script>
+                function Submit(){
+                document.getElementById("submitBtn").style.color="red";
+                jHelper.PrintFromJS('pew pew pew');
+                }    
+                </script>
+	</head>
+	
+	<body>
+                <form>
+                <div class="form-group">
+                <label for="user_name">User name:</label>
+                <input type="text" class="form-control" id="user_name" name="user_name"><br>
+                </div>
+                 
+                <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password"><br>
+                </div>
+                <!-- 
+                <div class="checkbox">
+                <label><input type="checkbox" name="checkbox"> Remember me</label>
+                </div>
+                 -->   
+                <button id="submitBtn" type="submit" class="btn btn-default" onclick="Submit()">Submit</button>          
+                </form>
+                <div>
+                <label>Todavia no te registraste? </label>    
+                <a href="SignUp.html">Sign Up</a>    
+                </div>
+            
+	</body> 
+     
+</html>
+    

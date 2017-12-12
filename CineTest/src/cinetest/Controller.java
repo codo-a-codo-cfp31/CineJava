@@ -19,7 +19,7 @@ public class Controller implements IViewEventListener{
     protected MainView view;
 
     public Controller(Stage primaryStage) {
-        view = new MainView();
+        view = new MainView(this.getClass().getResource("/Web/LogIn.html"));
         view.AddToList(this);
         Pane root = new Pane();
         root.getChildren().add(0, view.getMyBrowser());
