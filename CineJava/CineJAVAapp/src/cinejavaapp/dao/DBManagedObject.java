@@ -20,6 +20,7 @@ public class DBManagedObject {
 
     public DBManagedObject(){
         listValues = new ArrayList<>();
+        listColumns = new ArrayList<>();
     }
     
     public String getTableName() {
