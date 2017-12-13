@@ -6,6 +6,7 @@
 package cinejavaap.model;
 
 import cinejavaapp.dao.DBManagedObject;
+import cinejavaapp.dao.Pair;
 
 /**
  *
@@ -19,5 +20,10 @@ public class User extends DBManagedObject{
         super();
         listColumns.add("username");
         listColumns.add("email");
+        listValues.add( new Pair<String, String>( "String", username ));
+        //TODO: Crear la clase user completa
+        // agregando las columnas faltantes definidas en el modelo de datos 
+        // ver en la DB.
+        // Agregar a la lista listValues cada par (type , value) 
     }
 }
