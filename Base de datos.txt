@@ -1,0 +1,20 @@
+Para crear un user primero
+Crear user details:
+INSERT INTO user_Detail asdadd
+
+
+despues user status:
+INSERT INTO user_status asdadd
+
+y al finalizar user type:
+INSERT INTO user_type asdadd
+
+Para crear pelicula
+crear pelicula:
+INSERT INTO pelicula (Sala_id, Sala_Sala_Id, transaciones_id) values("aadad","asdad")
+
+despues pelicula details:
+crear pelicula_details (Id,Pelicula_statusId)values("22","22")
+
+y al finalizar pelicula status:
+INSERT INTO pelicula_status (Id,Clasificacion)values("22","22")
